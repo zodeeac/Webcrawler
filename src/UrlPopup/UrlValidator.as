@@ -14,7 +14,7 @@ package UrlPopup
 			
 			results = super.doValidation(value);
 			
-			var regEx:RegExp = /http[s]?\:\/\/(w[3]\.){0,1}([a-zA-Zäöü\-]{2,}?)\.([a-zA-Z\.]{2,})/;
+			var regEx:RegExp = /(http[s]?\:\/\/){0,1}(w[3]\.){0,1}([a-zA-Zäöü\-]{2,}?)\.([a-zA-Z\.]{2,})/;
 			
 			if (!regEx.test(stringToValidate)) {
 				results.push(new ValidationResult(true, null, "urlNotValid", "The URL is invalid!"));
