@@ -2,7 +2,8 @@
 <s:WindowedApplication xmlns:fx="http://ns.adobe.com/mxml/2009" 
 					   xmlns:s="library://ns.adobe.com/flex/spark" 
 					   xmlns:mx="library://ns.adobe.com/flex/mx"
-					   creationComplete="init()">
+					   creationComplete="init()"
+					   minWidth="640" minHeight="480">
 	<fx:Declarations>
 		<!-- Place non-visual elements (e.g., services, value objects) here -->
 	</fx:Declarations>
@@ -15,7 +16,21 @@
 			}
 		]]>
 	</fx:Script>
-	<s:Button id="crawl" label="Crawl..." click="main.crawl()"/>
-	<s:Button id="saveSel" label="Save Selected..." click="main.saveSelected()"/>
-	<s:Button id="saveAll" label="Save All..." click="main.saveAll()"/>
+	<s:VGroup
+		gap="5"
+		horizontalAlign="left"
+		paddingBottom="0"
+		paddingLeft="0"
+		paddingRight="0"
+		paddingTop="0"
+		requestedMaxRowCount="1"
+		requestedMinRowCount="1"
+		variableRowHeight="true"
+		verticalAlign="top"
+		>
+		<s:Button id="crawl" label="Crawl..." click="main.crawl()" width="100" height="40" right="0"/>
+		<s:VScrollBar id="scrollIMG" width="100" height="300"/>	
+		<s:Button id="saveSel" label="Save Selected..." click="main.saveSelected()" width="100" height="40"/>
+		<s:Button id="saveAll" label="Save All..." click="main.saveAll()" width="100" height="40"/>		
+	</s:VGroup>		
 </s:WindowedApplication>
