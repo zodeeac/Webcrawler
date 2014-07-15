@@ -1,5 +1,10 @@
 package
 {
+	import UrlPopup.UrlPopup;
+	
+	import mx.managers.*;
+
+
 	public class Main
 	{
 		
@@ -13,6 +18,12 @@ package
 		public function crawl()
 		{
 			trace("crawling...");
+		
+			var urlWindow:UrlPopup.UrlPopup = UrlPopup.UrlPopup(PopUpManager.createPopUp(this, UrlPopup.UrlPopup , true));
+			
+			urlWindow.x = _wc.width/2 - urlWindow.width/2;
+			urlWindow.y = _wc.height/2 - urlWindow.height/2;
+			
 		}
 		
 		public function saveSelected()
