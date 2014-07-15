@@ -15,15 +15,12 @@ package
 			_wc = wc;
 		}
 		
-		public function crawl()
-		{
-			trace("crawling...");
-		
-			var urlWindow:UrlPopup.UrlPopup = UrlPopup.UrlPopup(PopUpManager.createPopUp(this, UrlPopup.UrlPopup , true));
+		public function crawl():void
+		{ 
+			var urlWindow:UrlPopup.UrlPopup = UrlPopup.UrlPopup(PopUpManager.createPopUp(_wc, UrlPopup.UrlPopup, true));
+			urlWindow.title = "Enter a URL";
 			
-			urlWindow.x = _wc.width/2 - urlWindow.width/2;
-			urlWindow.y = _wc.height/2 - urlWindow.height/2;
-			
+			PopUpManager.centerPopUp(urlWindow); // centers popup
 		}
 		
 		public function saveSelected()

@@ -1,13 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <s:TitleWindow xmlns:fx="http://ns.adobe.com/mxml/2009" 
 			   xmlns:s="library://ns.adobe.com/flex/spark" 
-			   xmlns:mx="library://ns.adobe.com/flex/mx" width="280" height="80">
+			   xmlns:mx="library://ns.adobe.com/flex/mx" width="280" height="60"
+			  	close="closePopup()" xmlns:UrlPopup="UrlPopup.*"
+				creationComplete="init()"
+			   >
 	<s:layout>
 		<s:HorizontalLayout/>
 	</s:layout>
+	<fx:Script source="PopupScript.as" />
 	<fx:Declarations>
-		<!-- Platzieren Sie nichtvisuelle Elemente (z. B. Dienste, Wertobjekte) hier -->
+		<UrlPopup:UrlValidator id="urlValidator" source="{urlInput}" property="text" />
 	</fx:Declarations>
 	
-	<s:textInput id="urlInput"></s:textInput><s:Button id="sendButton"></s:Button>
+	
+	<s:TextInput id="urlInput" width="80%" height="100%"></s:TextInput><s:Button id="sendButton" label="OK" width="20%" height="100%"></s:Button>
 </s:TitleWindow>
