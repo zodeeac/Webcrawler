@@ -7,10 +7,6 @@
 		 horizontalAlign="center"
 		 verticalAlign="middle">
 	
-	<fx:Declarations>
-		<!-- Place non-visual elements (e.g., services, value objects) here -->
-	</fx:Declarations>
-	
 	<s:Image 
 		id="imageShown" 
 		width="75%" 
