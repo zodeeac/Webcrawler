@@ -9,5 +9,20 @@ package
 		{
 			_wc = wc;
 		}
+		
+		public function crawl()
+		{
+			trace("crawling...");
+		}
+		
+		public function saveSelected()
+		{
+			trace("saving selected...");
+		}
+		
+		public function saveAll()
+		{
+			trace("saving all...");
+		}
 	}
 }
