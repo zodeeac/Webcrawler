@@ -7,13 +7,24 @@
 	
 	<fx:Declarations>
 		<!-- Place non-visual elements (e.g., services, value objects) here -->
-	</fx:Declarations>
+	</fx:Declarations>	
 	
-	<s:Button id="crawl" label="Crawl..." width="100%" height="40"/>
+	<fx:Script>
+		<![CDATA[
+			public var main:Main;
+			public var wc:Webcrawler;
+			private function init():void 
+			{
+				main = new Main(wc);
+			}
+		]]>
+	</fx:Script>
+	
+	<s:Button id="crawl" label="Crawl..." width="100%" height="40" clear="main.crawl()"/>
 	<s:HGroup height="100%">
 		<s:VScrollBar id="scrollBar" height="100%"/>
 		<s:TileGroup width="100%"/>		
 	</s:HGroup>
-	<s:Button id="saveSel" label="Save Selected..." width="100%" height="40"/>
-	<s:Button id="saveAll" label="Save All..." width="100%" height="40"/>
+	<s:Button id="saveSel" label="Save Selected..." width="100%" height="40" click="main.saveSelected()"/>
+	<s:Button id="saveAll" label="Save All..." width="100%" height="40" click="main.saveAll()"/>
 </s:VGroup>

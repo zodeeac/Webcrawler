@@ -13,16 +13,6 @@
 		<!-- Place non-visual elements (e.g., services, value objects) here -->
 	</fx:Declarations>
 	
-	<fx:Script>
-		<![CDATA[
-			public var main:Main;
-			private function init():void 
-			{
-				main = new Main(this);
-			}
-		]]>
-	</fx:Script>
-	
 	<s:HGroup height="100%"	width="100%" horizontalCenter="0" verticalCenter="0">
 		<local:Display/>
 		<local:Controls/>
