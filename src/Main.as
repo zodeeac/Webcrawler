@@ -31,12 +31,12 @@ package
 			PopUpManager.centerPopUp(urlWindow); // centers popup
 		}
 		
-		public function saveSelected()
+		public function saveSelected():void
 		{
 			trace("saving selected...");
 		}
 		
-		public function saveAll()
+		public function saveAll():void
 		{
 			trace("saving all...");
 		}

@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<s:VGroup xmlns:fx="http://ns.adobe.com/mxml/2009" 
+		 xmlns:s="library://ns.adobe.com/flex/spark" 
+		 xmlns:mx="library://ns.adobe.com/flex/mx" 
+		 width="200" 
+		 height="100%" xmlns:local="*">	
+	
+	<fx:Script>
+		<![CDATA[
+			public var main:Main;
+			public var wc:Webcrawler;
+			private function init():void 
+			{
+				main = new Main(wc);
+			}
+		]]>
+	</fx:Script>
+	
+	<s:Button id="crawl" label="Crawl..." width="100%" height="40" click="main.crawl()"/>
+	<s:HGroup width="100%" height="100%">
+		<s:Scroller id="scrollBar" width="100%" height="100%">
+			<s:VGroup id="crawled" width="100%" height="100%">
+				<local:ImageElement/>
+				<local:ImageElement/>
+				<local:ImageElement/>
+				<local:ImageElement/>
+				<local:ImageElement/>
+				<local:ImageElement/>
+				<local:ImageElement/>
+				<local:ImageElement/>
+				<local:ImageElement/>
+				<local:ImageElement/>
+				<local:ImageElement/>
+				<local:ImageElement/>
+				<local:ImageElement/>
+				<local:ImageElement/>
+			</s:VGroup>	
+		</s:Scroller>	
+	</s:HGroup>
+	<s:Button id="saveSel" label="Save Selected..." width="100%" height="40" click="main.saveSelected()"/>
+	<s:Button id="saveAll" label="Save All..." width="100%" height="40" click="main.saveAll()"/>
+</s:VGroup>
