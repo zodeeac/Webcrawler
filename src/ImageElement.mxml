@@ -3,10 +3,11 @@
 		 xmlns:s="library://ns.adobe.com/flex/spark" 
 		 xmlns:mx="library://ns.adobe.com/flex/mx" 
 		 width="100%" 
-		 height="100">
+		 height="100"
+		 creationComplete="init()">
 	
 	<fx:Script source="ImageScript.as"/>
 	
-	<s:Image width="100%" height="100" source="assets/funny_crap_001.gif"/>
-	<s:Button width="25" height="25" label="x" visible="true" click="remove(event)" id="button" />
+	<s:Image width="100%" height="100" id="picture"/>
+	<s:Button width="25" height="25" label="x" visible="true" id="button" />
 </s:Group>
