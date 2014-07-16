@@ -1,10 +1,9 @@
+import flash.events.Event;
+
 // ActionScript file
 
-private function init():void
+private function remove(event:Event):void
 {
-	
-}
-
-private function remove():void
-{
+	trace("removed");
+	event.
 }
