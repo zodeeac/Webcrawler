@@ -81,18 +81,35 @@ package
 			for (var tag:String in imageTags) {
 				var image:String = imageTags[tag].substr(5, imageTags[tag].length); // Remove the prefix
 				// If url to image is not remote to the requested site, it is located on the site itself => add URL to the requested url
-				if ( image.indexOf("http://") != 0 && image.indexOf("https://") != 0) {
+				if ( image.indexOf("http://") != 0 && image.indexOf("https://") != 0 && image.indexOf("//") != 0) {
+					trace(image + " => ");
 					// If image path is relative => append a slash
 					var imageUrlPrefix:String = "";
 					if (image.indexOf("/") != 0) {
-						imageUrlPrefix = httpService.url+"/";
+						var trailingSlash:String = (httpService.url.substr(httpService.url.length-1, httpService.url.length) == "/") ? "" : "/";
+						imageUrlPrefix = httpService.url+trailingSlash;
 					// If path is absolute get the base url
 					} else {
-						imageUrlPrefix = httpService.url.substr(0, httpService.url.indexOf("/",9));
+						// If slash after the base url is missing (=> only base url given) add the whole url, otherwise add just the base url
+						var slashAfterBaseUrl:int = httpService.url.indexOf("/",9);
+						if (slashAfterBaseUrl == -1) {
+							imageUrlPrefix = httpService.url;
+						} else {
+							imageUrlPrefix = httpService.url.substr(0, slashAfterBaseUrl);	
+						}
+						
 					}
 					image = imageUrlPrefix + image; // Prepend URL prefix
+					
+				// if shorthand protocoll notation is used (e.g. by google)
+				} else if (image.indexOf("//") == 0) {
+					image = "http:"+image;
 				}
+				
+				
+				
 				images.push(image); // Push to output array
+				trace(image);
 			}
 			
 			// Set imageList to newly generated Array
