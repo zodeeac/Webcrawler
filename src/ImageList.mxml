@@ -8,14 +8,8 @@
 		 gap="0">	
 	
 	<fx:Script source="ImageListScript.as"/>
-	
 	<s:Button id="crawl" label="Crawl..." width="100%" height="40" click="FlexGlobals.topLevelApplication.main.crawl()"/>
-	<s:HGroup gap="0" width="100%" height="100%">
-		<s:Scroller id="scrollBar" width="100%" height="100%">
-			<s:VGroup id="crawled" width="100%" height="100%">
-			</s:VGroup>	
-		</s:Scroller>	
-	</s:HGroup>
+	<s:List width="100%" height="100%" id="crawled"/>
 	<s:Button id="saveSel" label="Save Selected..." width="100%" height="40" click="FlexGlobals.topLevelApplication.main.saveSelected()"/>
 	<s:Button id="saveAll" label="Save All..." width="100%" height="40" click="FlexGlobals.topLevelApplication.main.saveAll()"/>
 </s:VGroup>

@@ -1,36 +1,30 @@
 // ActionScript file
 
+import mx.collections.ArrayList;
 import mx.core.Application;
 import mx.core.FlexGlobals;
 import mx.core.IVisualElement;
 
-private var _dataProvider:Array;
-
-public function set dataProvider (data:Array):void
+public function set dataProvider (data:ArrayList):void
 {
-	_dataProvider = data;
-	this.crawled.removeAllElements();
-	for each(var element:String in _dataProvider)
+	var dp:ArrayList = new ArrayList();
+	for each(var element:String in data)
 	{
 		var imgElem:ImageElement = new ImageElement();
-		imgElem.list = this;
 		imgElem.image = element;
 		imgElem.picture.toolTip = element;
-		this.crawled.addElement(imgElem);
+		dp.addItem(imgElem);
 	}
+	this.crawled.dataProvider = dp;
 }
 
-public function get dataProvider():Array
+public function get dataProvider():ArrayList
 {
-	return _dataProvider;
+	return this.crawled.dataProvider;
 }
 
 public function remove(element:IVisualElement):void
 {		
-	var elemIndex:int = crawled.getElementIndex(element);
-	crawled.removeElement(element);
-	trace("Element "+_dataProvider[elemIndex]);
-	_dataProvider.splice(elemIndex, 1);
-	
+	(this.crawled.dataProvider as ArrayList).removeItem(element);
 }
 	

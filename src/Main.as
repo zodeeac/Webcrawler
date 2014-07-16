@@ -6,6 +6,7 @@ package
 	import flash.events.*;
 	import flash.net.*;
 	
+	import mx.collections.ArrayList;
 	import mx.managers.*;
 	import mx.rpc.events.*;
 	import mx.rpc.http.*;
@@ -77,7 +78,7 @@ package
 			var imageTags:Array = e.result.match(regEx);
 			
 			// Go through all images and remove the prefix (src=")
-			var images:Array = new Array();
+			var images:ArrayList = new ArrayList();
 			for (var tag:String in imageTags) {
 				var image:String = imageTags[tag].substr(5, imageTags[tag].length); // Remove the prefix
 				// If url to image is not remote to the requested site, it is located on the site itself => add URL to the requested url
@@ -108,7 +109,7 @@ package
 				
 				
 				
-				images.push(image); // Push to output array
+				images.addItem(image); // Push to output array
 				trace(image);
 			}
 			
