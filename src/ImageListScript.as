@@ -13,7 +13,7 @@ public function set dataProvider (data:Array):void
 	{
 		var imgElem:ImageElement = new ImageElement();
 		imgElem.image = element;
-		this.crawled.addChild(imgElem);
+		this.crawled.addElement(imgElem);
 	}
 }
 
