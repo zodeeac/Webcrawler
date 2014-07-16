@@ -96,7 +96,7 @@ package
 			}
 			
 			// Set imageList to newly generated Array
-			_imageList = images;
+			_wc.controls.dataProvider = images;
 		}
 		
 		public function onLoadError (e:FaultEvent):void {
