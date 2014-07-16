@@ -3,12 +3,14 @@
 		 xmlns:s="library://ns.adobe.com/flex/spark" 
 		 xmlns:mx="library://ns.adobe.com/flex/mx" 
 		 width="200" 
-		 height="100%" xmlns:local="*">	
+		 height="100%" 
+		 xmlns:local="*"
+		 gap="0">	
 	
 	<fx:Script source="ImageListScript.as"/>
 	
 	<s:Button id="crawl" label="Crawl..." width="100%" height="40" click="FlexGlobals.topLevelApplication.main.crawl()"/>
-	<s:HGroup width="100%" height="100%">
+	<s:HGroup gap="0" width="100%" height="100%">
 		<s:Scroller id="scrollBar" width="100%" height="100%">
 			<s:VGroup id="crawled" width="100%" height="100%">
 			</s:VGroup>	

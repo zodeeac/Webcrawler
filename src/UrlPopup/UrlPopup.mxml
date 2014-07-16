@@ -5,14 +5,14 @@
 			  	close="closePopup()" xmlns:UrlPopup="UrlPopup.*"
 				creationComplete="init()"
 			   >
-	<s:layout>
-		<s:HorizontalLayout/>
-	</s:layout>
 	<fx:Script source="PopupScript.as" />
+	
 	<fx:Declarations>
 		<UrlPopup:UrlValidator id="urlValidator" source="{urlInput}" property="text" />
 	</fx:Declarations>
 	
-	
-	<s:TextInput id="urlInput" width="80%" height="100%"></s:TextInput><s:Button id="sendButton" label="OK" width="20%" height="100%"></s:Button>
+	<s:HGroup gap="0" width="100%" height="100%">
+		<s:TextInput id="urlInput" width="80%" height="100%"/>
+		<s:Button id="sendButton" label="OK" width="20%" height="100%"/>
+	</s:HGroup>
 </s:TitleWindow>
