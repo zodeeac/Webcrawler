@@ -3,6 +3,8 @@ package
 	import UrlPopup.UrlEvent;
 	import UrlPopup.UrlPopup;
 	
+	import flash.display.Bitmap;
+	import flash.display.Loader;
 	import flash.events.*;
 	import flash.net.*;
 	
@@ -68,7 +70,7 @@ package
 		
 		public function onLoadComplete (e:ResultEvent):void {
 			// Remove events
-			e.target.removeEventListener(Event.COMPLETE, onLoadComplete);
+			e.target.removeEventListener(ResultEvent.RESULT, onLoadComplete);
 			e.target.removeEventListener(FaultEvent.FAULT, onLoadError);
 			
 			var httpService:Object =  e.target; // HTTP Service object
@@ -107,20 +109,34 @@ package
 					image = "http:"+image;
 				}
 				
-				
-				
-				images.addItem(image); // Push to output array
-				trace(image);
+				this.analyseImage(image);
 			}
 			
-			// Set imageList to newly generated Array
-			_wc.controls.dataProvider = images;
 		}
 		
 		public function onLoadError (e:FaultEvent):void {
 			e.target.removeEventListener(Event.COMPLETE, onLoadComplete);
 			e.target.removeEventListener(FaultEvent.FAULT, onLoadError);
 			trace(e.fault.faultString);
+		}
+		
+		private function analyseImage (image:String):void {
+			var loader:Loader = new Loader();
+			loader.contentLoaderInfo.addEventListener(Event.COMPLETE, onImageLoaded);
+			loader.load(new URLRequest(image));
+		}
+		
+		private function onImageLoaded (e:Event) {
+			e.target.removeEventListener(Event.COMPLETE, onImageLoaded);	
+			
+			var bitmap:Bitmap = e.target.content as Bitmap;
+			
+			if (bitmap.width == 1 || bitmap.height == 1) {
+				return;
+			}
+			
+			_wc.display.imageShown.source = bitmap;
+			_wc.controls.crawled.addImage(bitmap);
 		}
 		
 	}
