@@ -20,7 +20,7 @@ public function set dataProvider (data:ArrayList):void
 
 public function get dataProvider():ArrayList
 {
-	return this.crawled.dataProvider;
+	return this.crawled.dataProvider as ArrayList;
 }
 
 public function remove(element:IVisualElement):void
