@@ -10,17 +10,17 @@ import flash.utils.*;
 
 import mx.collections.ArrayList;
 
-
-public function saveImage (image:BitmapData):void {
+public function saveImage (image:Object):void {
 	var fr:FileReference = new FileReference();
 	
 	var encoder:JPGEncoder = new JPGEncoder(90);
-	var jpgImage:ByteArray = encoder.encode(image);
+	var jpgImage:ByteArray = encoder.encode(image['image']);
 	fr.save(jpgImage);
 	
+	var url:String = (image['url'] as String);
+	var fileName:String = url.substr(url.lastIndexOf("/")+1, url.lastIndexOf(".")-1);
 	var file:File = new File();
-	//file.addEventListener(Event.SELECT, onFileSelect);
-	file.save(jpgImage);
+	file.save(jpgImage, fileName);
 	
 }
 
