@@ -1,5 +1,7 @@
 // ActionScript file
 
+import Image.ImageElement;
+
 import flash.display.Bitmap;
 import flash.display.BitmapData;
 import flash.events.Event;
@@ -8,9 +10,6 @@ import mx.collections.ArrayList;
 import mx.core.BitmapAsset;
 import mx.core.FlexGlobals;
 import mx.core.IVisualElement;
-
-import spark.primitives.supportClasses.FilledElement;
-import Image.ImageElement;
 
 public function set dataProvider (data:ArrayList):void
 {
@@ -38,5 +37,6 @@ public function remove(element:IVisualElement):void
 public function onChange():void
 {
 	FlexGlobals.topLevelApplication.display.setImage(dataProvider.getItemAt(crawled.selectedIndex).image);
+	FlexGlobals.topLevelApplication.controls.saveSel.enabled = true;
 }
 	
