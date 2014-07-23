@@ -12,6 +12,7 @@ import mx.core.FlexGlobals;
 import mx.core.IVisualElement;
 
 import spark.primitives.supportClasses.FilledElement;
+import Image.ImageElement;
 
 public function set dataProvider (data:ArrayList):void
 {
@@ -38,6 +39,6 @@ public function remove(element:IVisualElement):void
 
 public function onChange():void
 {
-	FlexGlobals.topLevelApplication.display.imageShown.source = dataProvider.getItemAt(crawled.selectedIndex).image; 
+	FlexGlobals.topLevelApplication.display.setImage(dataProvider.getItemAt(crawled.selectedIndex).image);
 }
 	

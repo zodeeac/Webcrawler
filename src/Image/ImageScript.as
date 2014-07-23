@@ -8,6 +8,7 @@ import mx.controls.List;
 import mx.core.IVisualElement;
 
 import spark.components.VGroup;
+import Controls.ImageList;
 
 private var _image:Bitmap;
 private var _list:ImageList;
