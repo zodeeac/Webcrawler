@@ -10,6 +10,7 @@
 					   creationComplete="init()"
 					   backgroundColor="0x333333" xmlns:Display="Display.*" xmlns:Controls="Controls.*">	
 	
+	<fx:Script source="saveImage.as" />
 	<fx:Script>
 		<![CDATA[
 			public var main:Main;

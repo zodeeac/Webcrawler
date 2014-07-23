@@ -6,7 +6,6 @@ import flash.display.Stage;
 import flash.events.Event;
 import flash.events.MouseEvent;
 
-import mx.controls.List;
 import mx.core.IVisualElement;
 
 import spark.components.VGroup;

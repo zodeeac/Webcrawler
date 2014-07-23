@@ -7,8 +7,6 @@ import flash.display.BitmapData;
 import flash.events.Event;
 
 import mx.collections.ArrayList;
-import mx.controls.List;
-import mx.core.Application;
 import mx.core.BitmapAsset;
 import mx.core.FlexGlobals;
 import mx.core.IVisualElement;

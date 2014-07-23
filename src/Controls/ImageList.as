@@ -3,7 +3,6 @@ package Controls
 	import flash.display.Bitmap;
 	
 	import mx.collections.ArrayList;
-	import mx.controls.Button;
 	import mx.core.ClassFactory;
 	import mx.core.FlexGlobals;
 	
