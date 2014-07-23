@@ -4,11 +4,13 @@ package
 	import UrlPopup.UrlPopup;
 	
 	import flash.display.Bitmap;
+	import flash.display.BitmapData;
 	import flash.display.Loader;
 	import flash.events.*;
 	import flash.net.*;
 	
 	import mx.collections.ArrayList;
+	import mx.core.FlexGlobals;
 	import mx.managers.*;
 	import mx.rpc.events.*;
 	import mx.rpc.http.*;
@@ -135,8 +137,7 @@ package
 				return;
 			}
 			
-			_wc.display.imageShown.source = bitmap;
-			_wc.controls.crawled.addImage(bitmap);
+			FlexGlobals.topLevelApplication.controls.crawled.addImage(bitmap);
 		}
 		
 	}
