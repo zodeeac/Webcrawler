@@ -1,3 +1,5 @@
+import Controls.ImageList;
+
 import flash.display.Bitmap;
 import flash.display.BitmapData;
 import flash.display.Stage;
@@ -8,7 +10,6 @@ import mx.controls.List;
 import mx.core.IVisualElement;
 
 import spark.components.VGroup;
-import Controls.ImageList;
 
 private var _image:Bitmap;
 private var _list:ImageList;
@@ -41,13 +42,22 @@ public function set list(list:ImageList):void
 	_list = list;
 }
 
-private function init():void
-{
-	button.addEventListener(MouseEvent.CLICK, remove);
-}
-
 private function remove(event:Event):void
 {
 	trace("removed");
 	_list.removeImage(this._data);
+}
+
+private function onMouseOver(event:Event):void
+{
+	trace("Mouseover");
+	this.button.enabled = true;
+	this.button.visible = true;
+}
+
+private function onMouseOut(event:Event):void
+{
+	trace("Mouse Out");
+	this.button.enabled = false;	
+	this.button.visible = false;
 }

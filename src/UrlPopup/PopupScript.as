@@ -2,6 +2,7 @@ import UrlPopup.UrlEvent;
 
 import flash.events.MouseEvent;
 
+import mx.controls.Button;
 import mx.events.*;
 import mx.managers.PopUpManager;
 import mx.validators.*;

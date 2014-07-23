@@ -3,11 +3,12 @@
 		 xmlns:s="library://ns.adobe.com/flex/spark" 
 		 xmlns:mx="library://ns.adobe.com/flex/mx" 
 		 width="100%" 
-		 height="100"
-		 creationComplete="init()">
+		 height="100%"
+		 mouseOver="onMouseOver(event)"
+		 mouseOut="onMouseOut(event)">
 	
 	<fx:Script source="ImageScript.as"/>
 	
-	<s:Image width="100%" height="100" id="picture"/>
-	<s:Button width="25" height="25" label="x" visible="true" id="button" />
+	<s:Image width="100%" height="100%" id="picture"/>
+	<s:Button width="50" height="50" label="x" id="button" click="remove(event)" visible="false" enabled="false"/>
 </s:ItemRenderer>
