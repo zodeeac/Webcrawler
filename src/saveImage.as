@@ -1,4 +1,5 @@
-import flash.display.*;
+import flash.display.BitmapData;
+import flash.display.JPEGEncoderOptions;
 import flash.events.*;
 import flash.filesystem.File;
 import flash.geom.Rectangle;
@@ -9,11 +10,12 @@ import flash.utils.*;
 import mx.collections.ArrayList;
 
 
-private function saveImage (image:Bitmap):void {
+public function saveImage (image:BitmapData):void {
 	var fr:FileReference = new FileReference();
 	
-	var bounds:Rectangle = image.bitmapData.rect;
-	var jpgImage:ByteArray = image.bitmapData.encode(bounds, new JPEGEncoderOptions(50));
+	var bounds:Rectangle = image.rect;
+	var encoderOptions:JPEGEncoderOptions = new JPEGEncoderOptions(50);
+	var jpgImage:ByteArray = image.encode(bounds, encoderOptions);
 	fr.save(jpgImage);
 	
 	var file:File = new File();
@@ -22,7 +24,7 @@ private function saveImage (image:Bitmap):void {
 	
 }
 
-private function saveImages (images:ArrayList):void {
+public function saveImages (images:ArrayList):void {
 	/*
 	var fr:FileReference = new FileReference();
 	
@@ -33,6 +35,6 @@ private function saveImages (images:ArrayList):void {
 	*/
 }
 
-private function onFileSelect (e:Event) {
+private function onFileSelect (e:Event):void {
 	
 }

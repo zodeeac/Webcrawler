@@ -42,7 +42,7 @@ package
 		
 		public function saveSelected():void
 		{
-			trace("saving selected...");
+			_wc.saveImage(_wc.display.imageShown.bitmapData);
 		}
 		
 		public function saveAll():void
