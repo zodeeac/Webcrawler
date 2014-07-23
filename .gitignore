@@ -1,1 +1,5 @@
-*.swf
+.flexProperties
+.project
+.actionScriptProperties
+.settings/
+bin-debug/
