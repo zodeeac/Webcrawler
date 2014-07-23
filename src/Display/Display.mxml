@@ -7,6 +7,8 @@
 		 horizontalAlign="center"
 		 verticalAlign="middle">
 	
+	<fx:Script source="DisplayScript.as"/>
+	
 	<s:Image 
 		id="imageShown" 
 		width="75%" 

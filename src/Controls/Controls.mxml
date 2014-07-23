@@ -5,13 +5,12 @@
 		 width="200" 
 		 height="100%" 
 		 xmlns:local="*"
-		 gap="0"
-		 creationComplete="init()">	
+		 gap="0" xmlns:Controls="Controls.*">	
 	
 	<fx:Script source="ImageListScript.as"/>
 	
 	<s:Button id="crawl" label="Crawl..." width="100%" height="40" click="FlexGlobals.topLevelApplication.main.crawl()"/>
-	<local:ImageList width="100%" height="100%" id="crawled" change="onChange()"/>
+	<Controls:ImageList width="100%" height="100%" id="crawled" change="onChange()"/>
 	<s:Button id="saveSel" label="Save Selected..." width="100%" height="40" click="FlexGlobals.topLevelApplication.main.saveSelected()"/>
 	<s:Button id="saveAll" label="Save All..." width="100%" height="40" click="FlexGlobals.topLevelApplication.main.saveAll()"/>
 </s:VGroup>
