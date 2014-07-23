@@ -12,8 +12,9 @@
 		width="75%" 
 		maxWidth="600" 
 		height="75%" 
-		maxHeight="600" 
-		source="" 
+		maxHeight="600"
+		fillMode="scale"
+		source="assets/default.png" 
 		horizontalAlign="center"
 		verticalAlign="middle"
 	/>

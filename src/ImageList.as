@@ -1,5 +1,5 @@
 package
-{
+{	
 	import flash.display.Bitmap;
 	
 	import mx.collections.ArrayList;
