@@ -16,7 +16,7 @@
 		height="75%" 
 		maxHeight="600"
 		fillMode="scale"
-		source="assets/default.png" 
+		source="" 
 		horizontalAlign="center"
 		verticalAlign="middle"
 	/>
