@@ -44,7 +44,7 @@ package
 		
 		public function saveSelected():void
 		{
-			//_wc.saveImage(_wc.controls.crawled.selectedItem);
+			_wc.saveImage(_wc.controls.crawled.selectedItem);
 		}
 		
 		public function saveAll():void
@@ -136,12 +136,7 @@ package
 				return;
 			}
 			
-<<<<<<< HEAD
-			FlexGlobals.topLevelApplication.controls.crawled.addImage(bitmap);
-=======
-			_wc.display.imageShown.source = bitmap;
-			_wc.controls.crawled.addImage(bitmap, e.url);
->>>>>>> 8dc10db1a708603bf6ce60c4d748dbc06abeb304
+			FlexGlobals.topLevelApplication.controls.crawled.addImage(bitmap, bitmap.loaderInfo.url);
 		}
 		
 	}
