@@ -44,7 +44,7 @@ package
 		
 		public function saveSelected():void
 		{
-			_wc.saveImage(_wc.display.imageShown.bitmapData);
+			//_wc.saveImage(_wc.controls.crawled.selectedItem);
 		}
 		
 		public function saveAll():void
@@ -124,20 +124,24 @@ package
 		
 		private function analyseImage (image:String):void {
 			var loader:Loader = new Loader();
-			loader.contentLoaderInfo.addEventListener(Event.COMPLETE, onImageLoaded);
+			loader.contentLoaderInfo.addEventListener(ImageEvent.COMPLETE, onImageLoaded);
 			loader.load(new URLRequest(image));
 		}
 		
-		private function onImageLoaded (e:Event):void {
+		private function onImageLoaded (e:ImageEvent):void {
 			e.target.removeEventListener(Event.COMPLETE, onImageLoaded);	
-			
 			var bitmap:Bitmap = e.target.content as Bitmap;
 			
 			if (bitmap.width == 1 || bitmap.height == 1) {
 				return;
 			}
 			
+<<<<<<< HEAD
 			FlexGlobals.topLevelApplication.controls.crawled.addImage(bitmap);
+=======
+			_wc.display.imageShown.source = bitmap;
+			_wc.controls.crawled.addImage(bitmap, e.url);
+>>>>>>> 8dc10db1a708603bf6ce60c4d748dbc06abeb304
 		}
 		
 	}

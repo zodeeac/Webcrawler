@@ -18,8 +18,8 @@ package Controls
 			this.itemRenderer = new ClassFactory(ImageElement);
 		}
 		
-		public function addImage (image:Bitmap):void {
-			this.dataProvider.addItem({"image": image, "list": this});
+		public function addImage (image:Bitmap, url:String):void {
+			this.dataProvider.addItem({"url": url, "image": image, "list": this});
 		}
 		
 		public function removeImage (content:Object):void 
