@@ -126,7 +126,7 @@ package
 			loader.load(new URLRequest(image));
 		}
 		
-		private function onImageLoaded (e:Event) {
+		private function onImageLoaded (e:Event):void {
 			e.target.removeEventListener(Event.COMPLETE, onImageLoaded);	
 			
 			var bitmap:Bitmap = e.target.content as Bitmap;

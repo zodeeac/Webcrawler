@@ -8,7 +8,7 @@ package UrlPopup
 		
 		private var _url:String;
 		
-		public function UrlEvent(type:String, url, bubbles:Boolean=false, cancelable:Boolean=false)
+		public function UrlEvent(type:String, url:String, bubbles:Boolean=false, cancelable:Boolean=false)
 		{
 			super(type, bubbles, cancelable);
 			_url = url;

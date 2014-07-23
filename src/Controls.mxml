@@ -15,11 +15,8 @@
 		]]>
 	</fx:Script>
 	
-<<<<<<< HEAD:src/ImageList.mxml
 	<fx:Script source="ImageListScript.as"/>
 	
-=======
->>>>>>> d31eaea38abfefcbf60cf06b98bc83d8b0d4c0a1:src/Controls.mxml
 	<s:Button id="crawl" label="Crawl..." width="100%" height="40" click="FlexGlobals.topLevelApplication.main.crawl()"/>
 	<local:ImageList width="100%" height="100%" id="crawled"/>
 	<s:Button id="saveSel" label="Save Selected..." width="100%" height="40" click="FlexGlobals.topLevelApplication.main.saveSelected()"/>
