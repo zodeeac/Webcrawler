@@ -3,7 +3,6 @@ package
 	import flash.display.Bitmap;
 	
 	import mx.collections.ArrayList;
-	import mx.controls.Button;
 	import mx.core.ClassFactory;
 	
 	import spark.components.List;

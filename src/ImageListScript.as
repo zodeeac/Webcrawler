@@ -5,13 +5,10 @@ import flash.display.BitmapData;
 import flash.events.Event;
 
 import mx.collections.ArrayList;
-import mx.controls.List;
-import mx.core.Application;
 import mx.core.BitmapAsset;
 import mx.core.FlexGlobals;
 import mx.core.IVisualElement;
 
-import spark.primitives.supportClasses.FilledElement;
 
 public function set dataProvider (data:ArrayList):void
 {
