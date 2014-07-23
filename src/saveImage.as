@@ -1,5 +1,6 @@
+import com.adobe.images.JPGEncoder;
+
 import flash.display.BitmapData;
-import flash.display.JPEGEncoderOptions;
 import flash.events.*;
 import flash.filesystem.File;
 import flash.geom.Rectangle;
@@ -13,9 +14,8 @@ import mx.collections.ArrayList;
 public function saveImage (image:BitmapData):void {
 	var fr:FileReference = new FileReference();
 	
-	var bounds:Rectangle = image.rect;
-	var encoderOptions:JPEGEncoderOptions = new JPEGEncoderOptions(50);
-	var jpgImage:ByteArray = image.encode(bounds, encoderOptions);
+	var encoder:JPGEncoder = new JPGEncoder(90);
+	var jpgImage:ByteArray = encoder.encode(image);
 	fr.save(jpgImage);
 	
 	var file:File = new File();
