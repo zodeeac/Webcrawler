@@ -23,7 +23,8 @@ public function saveImage (image:Object, safeFile:Boolean = true):Object
 	var fileName:String = url.substr(url.lastIndexOf("/")+1, url.length);
 	fileName = fileName.substr(0,fileName.lastIndexOf("."))+".jpg";
 	trace(fileName);
-	if (safeFile) {
+	if (safeFile) 
+	{
 		var file:File = new File();
 		file.save(jpgImage, fileName);
 	}
@@ -43,7 +44,8 @@ private function onFileSelect (e:Event):void
 	File(e.currentTarget).removeEventListener(Event.SELECT, onFileSelect);
 	
 	var file:File = (e.target as File);
-	for (var i = 0; i < _images.length; i++) {
+	for (var i:uint = 0; i < _images.length; i++) 
+	{
 		var convertedImage:Object = saveImage(_images.getItemAt(i), false);
 		
 		var fl:File= new File( e.currentTarget.nativePath+"/"+convertedImage['fileName']);
