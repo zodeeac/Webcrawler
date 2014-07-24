@@ -139,11 +139,11 @@ package
 		private function analyseImage (image:String):void 
 		{
 			var loader:Loader = new Loader();
-			loader.contentLoaderInfo.addEventListener(ImageEvent.COMPLETE, onImageLoaded);
+			loader.contentLoaderInfo.addEventListener(Event.COMPLETE, onImageLoaded);
 			loader.load(new URLRequest(image));
 		}
 		
-		private function onImageLoaded (e:ImageEvent):void 
+		private function onImageLoaded (e:Event):void 
 		{
 			e.target.removeEventListener(Event.COMPLETE, onImageLoaded);	
 			var bitmap:Bitmap = e.target.content as Bitmap;
@@ -153,7 +153,10 @@ package
 				return;
 			}
 			
-			FlexGlobals.topLevelApplication.controls.crawled.addImage(bitmap, bitmap.loaderInfo.url);
+			trace( bitmap.loaderInfo.url);
+			
+			
+			FlexGlobals.topLevelApplication.controls.crawled.addImage(bitmap);
 		}
 		
 	}
