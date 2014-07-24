@@ -28,7 +28,8 @@ package
 			_imageList = new Array();
 		}
 		
-		public function get images():Array {
+		public function get images():Array 
+		{
 			return _imageList;
 		}
 		
@@ -44,7 +45,7 @@ package
 		
 		public function saveSelected():void
 		{
-			_wc.saveImage(_wc.controls.crawled.selectedItem);
+			FlexGlobals.topLevelApplication.saveImage(FlexGlobals.topLevelApplication.controls.crawled.selectedItem);
 		}
 		
 		public function saveAll():void
@@ -52,7 +53,8 @@ package
 			trace("saving all...");
 		}
 		
-		public function onUrlInput(e:UrlEvent):void {
+		public function onUrlInput(e:UrlEvent):void 
+		{
 			// remove event!
 			e.target.removeEventListener(UrlPopup.UrlEvent.ENTERED, onUrlInput);
 			
@@ -70,7 +72,8 @@ package
 			httpService.send();
 		}
 		
-		public function onLoadComplete (e:ResultEvent):void {
+		public function onLoadComplete (e:ResultEvent):void 
+		{
 			// Remove events
 			e.target.removeEventListener(ResultEvent.RESULT, onLoadComplete);
 			e.target.removeEventListener(FaultEvent.FAULT, onLoadError);
@@ -83,31 +86,41 @@ package
 			
 			// Go through all images and remove the prefix (src=")
 			var images:ArrayList = new ArrayList();
-			for (var tag:String in imageTags) {
-				var image:String = imageTags[tag].substr(5, imageTags[tag].length); // Remove the prefix
+			for (var tag:String in imageTags) 
+			{
+				// Remove the prefix
+				var image:String = imageTags[tag].substr(5, imageTags[tag].length);
 				// If url to image is not remote to the requested site, it is located on the site itself => add URL to the requested url
-				if ( image.indexOf("http://") != 0 && image.indexOf("https://") != 0 && image.indexOf("//") != 0) {
+				if ( image.indexOf("http://") != 0 && image.indexOf("https://") != 0 && image.indexOf("//") != 0) 
+				{
 					trace(image + " => ");
 					// If image path is relative => append a slash
 					var imageUrlPrefix:String = "";
-					if (image.indexOf("/") != 0) {
+					if (image.indexOf("/") != 0) 
+					{
 						var trailingSlash:String = (httpService.url.substr(httpService.url.length-1, httpService.url.length) == "/") ? "" : "/";
 						imageUrlPrefix = httpService.url+trailingSlash;
 					// If path is absolute get the base url
-					} else {
+					} 
+					else 
+					{
 						// If slash after the base url is missing (=> only base url given) add the whole url, otherwise add just the base url
 						var slashAfterBaseUrl:int = httpService.url.indexOf("/",9);
-						if (slashAfterBaseUrl == -1) {
+						if (slashAfterBaseUrl == -1) 
+						{
 							imageUrlPrefix = httpService.url;
-						} else {
+						} 
+						else 
+						{
 							imageUrlPrefix = httpService.url.substr(0, slashAfterBaseUrl);	
-						}
-						
+						}						
 					}
 					image = imageUrlPrefix + image; // Prepend URL prefix
 					
 				// if shorthand protocoll notation is used (e.g. by google)
-				} else if (image.indexOf("//") == 0) {
+				} 
+				else if (image.indexOf("//") == 0) 
+				{
 					image = "http:"+image;
 				}
 				
@@ -116,23 +129,27 @@ package
 			
 		}
 		
-		public function onLoadError (e:FaultEvent):void {
+		public function onLoadError (e:FaultEvent):void 
+		{
 			e.target.removeEventListener(Event.COMPLETE, onLoadComplete);
 			e.target.removeEventListener(FaultEvent.FAULT, onLoadError);
 			trace(e.fault.faultString);
 		}
 		
-		private function analyseImage (image:String):void {
+		private function analyseImage (image:String):void 
+		{
 			var loader:Loader = new Loader();
 			loader.contentLoaderInfo.addEventListener(ImageEvent.COMPLETE, onImageLoaded);
 			loader.load(new URLRequest(image));
 		}
 		
-		private function onImageLoaded (e:ImageEvent):void {
+		private function onImageLoaded (e:ImageEvent):void 
+		{
 			e.target.removeEventListener(Event.COMPLETE, onImageLoaded);	
 			var bitmap:Bitmap = e.target.content as Bitmap;
 			
-			if (bitmap.width == 1 || bitmap.height == 1) {
+			if (bitmap.width == 1 || bitmap.height == 1) 
+			{
 				return;
 			}
 			
