@@ -10,7 +10,8 @@ import flash.utils.*;
 
 import mx.collections.ArrayList;
 
-public function saveImage (image:Object):void {
+public function saveImage (image:Object):void 
+{
 	var fr:FileReference = new FileReference();
 	
 	var encoder:JPGEncoder = new JPGEncoder(90);
@@ -24,7 +25,8 @@ public function saveImage (image:Object):void {
 	
 }
 
-public function saveImages (images:ArrayList):void {
+public function saveImages (images:ArrayList):void 
+{
 	/*
 	var fr:FileReference = new FileReference();
 	
@@ -35,6 +37,7 @@ public function saveImages (images:ArrayList):void {
 	*/
 }
 
-private function onFileSelect (e:Event):void {
+private function onFileSelect (e:Event):void 
+{
 	
 }
