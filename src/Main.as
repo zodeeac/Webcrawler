@@ -20,6 +20,7 @@ package
 	{
 		
 		private var _wc:Webcrawler;
+		private var _imageSaver:ImageSaver;
 		private var _imagesOnSite:uint;
 		private var _imagesLoaded:uint;
 		
@@ -28,6 +29,7 @@ package
 			_wc = wc;
 			_imagesOnSite = 0;
 			_imagesLoaded = 0;
+			_imageSaver = new ImageSaver();
 		}
 		
 		
@@ -43,12 +45,12 @@ package
 		
 		public function saveSelected():void
 		{
-			_wc.saveImage(_wc.controls.crawled.selectedItem);
+			_imageSaver.saveImage(_wc.controls.crawled.selectedItem);
 		}
 		
 		public function saveAll():void
 		{
-			_wc.saveImages(_wc.controls.crawled.dataProvider as ArrayList);
+			_imageSaver.saveImages(_wc.controls.crawled.dataProvider as ArrayList);
 		}
 		
 		public function onUrlInput(e:UrlEvent):void 
