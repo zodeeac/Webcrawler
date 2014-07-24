@@ -10,7 +10,7 @@
 	<fx:Script source="ControlsScript.as"/>
 	
 	<s:Button id="crawl" label="Crawl..." width="100%" height="40" click="FlexGlobals.topLevelApplication.main.crawl()"/>
-	<Controls:ImageList width="100%" height="100%" id="crawled" change="onChange()"/>
+	<Controls:ImageList width="100%" height="100%" id="crawled" change="onChange()" enabled="false" />
 	<s:Button id="saveSel" label="Save Selected..." width="100%" height="40" click="FlexGlobals.topLevelApplication.main.saveSelected()" enabled="false"/>
-	<s:Button id="saveAll" label="Save All..." width="100%" height="40" click="FlexGlobals.topLevelApplication.main.saveAll()" enabled="true"/>
+	<s:Button id="saveAll" label="Save All..." width="100%" height="40" click="FlexGlobals.topLevelApplication.main.saveAll()" enabled="false"/>
 </s:VGroup>

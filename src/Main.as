@@ -20,18 +20,16 @@ package
 	{
 		
 		private var _wc:Webcrawler;
-		private var _imageList:Array;
+		private var _imagesOnSite:uint;
+		private var _imagesLoaded:uint;
 		
 		public function Main(wc:Webcrawler)
 		{
 			_wc = wc;
-			_imageList = new Array();
+			_imagesOnSite = 0;
+			_imagesLoaded = 0;
 		}
 		
-		public function get images():Array 
-		{
-			return _imageList;
-		}
 		
 		public function crawl():void
 		{ 
@@ -58,6 +56,12 @@ package
 			// remove event!
 			e.target.removeEventListener(UrlPopup.UrlEvent.ENTERED, onUrlInput);
 			
+			// Disable all controls
+			FlexGlobals.topLevelApplication.controls.crawl.enabled = false;
+			FlexGlobals.topLevelApplication.controls.crawled.enabled = false;
+			FlexGlobals.topLevelApplication.controls.saveSel.enabled = false;
+			FlexGlobals.topLevelApplication.controls.saveAll.enabled = false;
+			
 			// Create HTTP Service with properties
 			var httpService:HTTPService = new HTTPService();
 			httpService.url = e.url;
@@ -83,6 +87,8 @@ package
 			// Match result against image element with gifs, jpgs and pngs and receive an array with every match
 			var regEx:RegExp = /src="[^?#"]*\.(gif|jpg|jpeg|png)/g;
 			var imageTags:Array = e.result.match(regEx);
+			_imagesOnSite = imageTags.length;
+			_imagesLoaded = 0;
 			
 			// Go through all images and remove the prefix (src=")
 			var images:ArrayList = new ArrayList();
@@ -140,6 +146,7 @@ package
 		{
 			var loader:Loader = new Loader();
 			loader.contentLoaderInfo.addEventListener(Event.COMPLETE, onImageLoaded);
+			loader.contentLoaderInfo.addEventListener(IOErrorEvent.IO_ERROR, onImageError);
 			loader.load(new URLRequest(image));
 		}
 		
@@ -148,6 +155,8 @@ package
 			e.target.removeEventListener(Event.COMPLETE, onImageLoaded);	
 			var bitmap:Bitmap = e.target.content as Bitmap;
 			
+			
+			_imagesLoaded++;
 			if (bitmap.width == 1 || bitmap.height == 1) 
 			{
 				return;
@@ -157,6 +166,25 @@ package
 			
 			
 			FlexGlobals.topLevelApplication.controls.crawled.addImage(bitmap);
+			
+			
+			this.checkLoaded();
+		}
+		
+		private function onImageError (e:IOErrorEvent):void {
+			
+			_imagesLoaded++;
+			
+			this.checkLoaded();
+		}
+		
+		private function checkLoaded ():void {
+			trace(_imagesLoaded + " == " + _imagesOnSite + " ?");
+			if (_imagesLoaded == _imagesOnSite) {
+				FlexGlobals.topLevelApplication.controls.crawl.enabled = true;
+				FlexGlobals.topLevelApplication.controls.crawled.enabled = true;
+				FlexGlobals.topLevelApplication.controls.saveAll.enabled = true;
+			}
 		}
 		
 	}
