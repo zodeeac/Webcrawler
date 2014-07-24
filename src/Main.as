@@ -42,7 +42,7 @@ package
 		
 		public function saveSelected():void
 		{
-			//_wc.saveImage(_wc.controls.crawled.selectedItem);
+			_wc.saveImage(_wc.controls.crawled.selectedItem);
 		}
 		
 		public function saveAll():void
