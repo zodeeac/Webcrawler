@@ -56,11 +56,11 @@ package
 			// remove event!
 			e.target.removeEventListener(UrlPopup.UrlEvent.ENTERED, onUrlInput);
 			
+			_wc.controls.crawled.clearList();
+			_wc.display.imageShown.source = new BitmapData(1,1,false,0x333333333);
+			
 			// Disable all controls
-			FlexGlobals.topLevelApplication.controls.crawl.enabled = false;
-			FlexGlobals.topLevelApplication.controls.crawled.enabled = false;
-			FlexGlobals.topLevelApplication.controls.saveSel.enabled = false;
-			FlexGlobals.topLevelApplication.controls.saveAll.enabled = false;
+			this.deactivateAllControls();
 			
 			// Create HTTP Service with properties
 			var httpService:HTTPService = new HTTPService();
@@ -139,6 +139,7 @@ package
 		{
 			e.target.removeEventListener(Event.COMPLETE, onLoadComplete);
 			e.target.removeEventListener(FaultEvent.FAULT, onLoadError);
+			this.activateAllControls();
 			trace(e.fault.faultString);
 		}
 		
@@ -181,10 +182,23 @@ package
 		private function checkLoaded ():void {
 			trace(_imagesLoaded + " == " + _imagesOnSite + " ?");
 			if (_imagesLoaded == _imagesOnSite) {
-				FlexGlobals.topLevelApplication.controls.crawl.enabled = true;
-				FlexGlobals.topLevelApplication.controls.crawled.enabled = true;
-				FlexGlobals.topLevelApplication.controls.saveAll.enabled = true;
+				this.activateAllControls();
 			}
+		}
+		
+		private function activateAllControls ():void {
+			FlexGlobals.topLevelApplication.controls.crawl.enabled = true;
+			FlexGlobals.topLevelApplication.controls.crawled.enabled = true;
+			if (FlexGlobals.topLevelApplication.controls.crawled.dataProvider.length > 0) {
+				FlexGlobals.topLevelApplication.controls.saveAll.enabled = true;	
+			}
+		}
+		
+		private function deactivateAllControls ():void {
+			FlexGlobals.topLevelApplication.controls.crawl.enabled = false;
+			FlexGlobals.topLevelApplication.controls.crawled.enabled = false;
+			FlexGlobals.topLevelApplication.controls.saveSel.enabled = false;
+			FlexGlobals.topLevelApplication.controls.saveAll.enabled = false;
 		}
 		
 	}
