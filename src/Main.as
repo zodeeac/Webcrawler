@@ -50,7 +50,7 @@ package
 		
 		public function saveAll():void
 		{
-			trace("saving all...");
+			_wc.saveImages(_wc.controls.crawled.dataProvider as ArrayList);
 		}
 		
 		public function onUrlInput(e:UrlEvent):void 
