@@ -1,9 +1,7 @@
 import UrlPopup.UrlEvent;
 
-import flash.events.KeyboardEvent;
-import flash.events.MouseEvent;
+import flash.events.*;
 import flash.ui.Keyboard;
-
 import mx.controls.Button;
 import mx.events.*;
 import mx.managers.PopUpManager;
@@ -44,15 +42,19 @@ private function onButtonClick(e:MouseEvent):void
 }
 
 // Send form on enter
-private function onKeyUp(e:KeyboardEvent):void {
-	if (e.keyCode == Keyboard.ENTER) {
+private function onKeyUp(e:KeyboardEvent):void 
+{
+	if (e.keyCode == Keyboard.ENTER) 
+	{
 		onButtonClick(new MouseEvent(MouseEvent.CLICK));
 	}
 }
 
 // Close popup with escape
-private function onWindowKeyUp(e:KeyboardEvent):void {
-	if (e.keyCode == Keyboard.ESCAPE) {
+private function onWindowKeyUp(e:KeyboardEvent):void 
+{
+	if (e.keyCode == Keyboard.ESCAPE) 
+	{
 		this.closePopup();
 	}
 }

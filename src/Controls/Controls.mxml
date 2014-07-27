@@ -5,7 +5,8 @@
 		 width="400" 
 		 height="100%" 
 		 xmlns:local="*"
-		 gap="0" xmlns:Controls="Controls.*">	
+		 gap="0" 
+		 xmlns:Controls="Controls.*">	
 	
 	<fx:Script source="ControlsScript.as"/>
 	

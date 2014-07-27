@@ -1,11 +1,9 @@
 package Controls
 {	
-	import flash.display.Bitmap;
-	
+	import flash.display.Bitmap;	
 	import mx.collections.ArrayList;
 	import mx.core.ClassFactory;
-	import mx.core.FlexGlobals;
-	
+	import mx.core.FlexGlobals;	
 	import spark.components.List;
 	import Image.ImageElement;
 	
@@ -18,7 +16,8 @@ package Controls
 			this.itemRenderer = new ClassFactory(ImageElement);
 		}
 		
-		public function addImage (image:Bitmap):void {
+		public function addImage (image:Bitmap):void 
+		{
 			this.dataProvider.addItem({"url": image.loaderInfo.url, "image": image, "list": this});
 		}
 		
@@ -27,7 +26,8 @@ package Controls
 			(this.dataProvider as ArrayList).removeItem(content);
 		}
 		
-		public function clearList ():void {
+		public function clearList ():void 
+		{
 			this.dataProvider.removeAll();
 		}
 	}

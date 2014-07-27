@@ -1,11 +1,9 @@
 // ActionScript file
 
 import Image.ImageElement;
-
 import flash.display.Bitmap;
 import flash.display.BitmapData;
 import flash.events.Event;
-
 import mx.collections.ArrayList;
 import mx.core.BitmapAsset;
 import mx.core.FlexGlobals;

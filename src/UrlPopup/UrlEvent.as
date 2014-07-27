@@ -14,7 +14,8 @@ package UrlPopup
 			_url = url;
 		}
 		
-		public function get url():String {
+		public function get url():String 
+		{
 			return _url;
 		}
 	}

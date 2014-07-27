@@ -8,7 +8,9 @@
 					   height="100%" 
 					   xmlns:local="*"
 					   creationComplete="init()"
-					   backgroundColor="0x333333" xmlns:Display="Display.*" xmlns:Controls="Controls.*">	
+					   backgroundColor="0x333333" 
+					   xmlns:Display="Display.*" 
+					   xmlns:Controls="Controls.*">	
 	
 	
 	<fx:Script>

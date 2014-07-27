@@ -1,16 +1,13 @@
 package
-{
-	
-	import com.adobe.images.JPGEncoder;
-	
+{	
+	import com.adobe.images.JPGEncoder;	
 	import flash.display.*;
 	import flash.events.*;
 	import flash.filesystem.*;
 	import flash.geom.Rectangle;
 	import flash.net.FileReference;
 	import flash.net.FileReferenceList;
-	import flash.utils.*;
-	
+	import flash.utils.*;	
 	import mx.collections.ArrayList;
 	
 	public class ImageSaver
@@ -23,9 +20,6 @@ package
 			_images = new ArrayList();
 		}
 		
-		
-		
-		
 		public function saveImage (image:Object, safeFile:Boolean = true):Object 
 		{
 			var encoder:JPGEncoder = new JPGEncoder(90);
@@ -37,7 +31,8 @@ package
 			var fileName:String = url.substr(url.lastIndexOf("/")+1, url.length);
 			fileName = fileName.substr(0,fileName.lastIndexOf("."))+".jpg";
 			trace(fileName);
-			if (safeFile) {
+			if (safeFile) 
+			{
 				var file:File = new File();
 				file.save(jpgImage, fileName);
 			}
@@ -57,17 +52,16 @@ package
 			File(e.currentTarget).removeEventListener(Event.SELECT, onFileSelect);
 			
 			var file:File = (e.target as File);
-			for (var i = 0; i < _images.length; i++) {
+			for (var i:int = 0; i < _images.length; i++) 
+			{
 				var convertedImage:Object = saveImage(_images.getItemAt(i), false);
 				
 				var fl:File= new File( e.currentTarget.nativePath+"/"+convertedImage['fileName']);
 				var fs:FileStream = new FileStream();
 				fs.open(fl, FileMode.WRITE);
 				fs.writeBytes(convertedImage['jpgImage'],0,convertedImage['jpgImage'].length-1);
-				fs.close();
-				
+				fs.close();				
 			}
-		}
-		
+		}		
 	}
 }

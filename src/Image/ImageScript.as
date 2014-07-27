@@ -5,16 +5,15 @@ import flash.display.BitmapData;
 import flash.display.Stage;
 import flash.events.Event;
 import flash.events.MouseEvent;
-
 import mx.core.IVisualElement;
-
 import spark.components.VGroup;
 
 private var _image:Bitmap;
 private var _list:ImageList;
 private var _data:Object;
 
-override public function set data(data:Object):void {
+override public function set data(data:Object):void 
+{
 	this._data = data;
 	if (data == null)
 	{
